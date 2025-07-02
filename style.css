@@ -1,0 +1,100 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main Container */
+.container {
+  background-color: #2c2c54;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #f1f1f1;
+  transition: 0.3s ease-in-out;
+}
+
+/* Heading */
+.container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #f5f6fa;
+}
+
+/* Hidden Number Display */
+#hiddenNumber {
+  font-size: 3rem;
+  background-color: #57606f;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* Message Box */
+.message {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #dcdde1;
+}
+
+/* Input Field */
+input[type="number"] {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 2px solid #ff6b81;
+  background: #1e272e;
+  color: #f1f2f6;
+  width: 140px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+input[type="number"]::placeholder {
+  color: #7f8fa6;
+}
+
+/* Buttons */
+button {
+  background-color: #ff6b81;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4757;
+  transform: scale(1.05);
+}
+
+/* Score Area */
+.score-box {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.score-box span {
+  color: #70a1ff;
+  font-weight: bold;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guess the Number</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="container-wrapper">
+      <button type="button" class="btn btn_again" onclick="resetGame()">Play Again</button>
+      <p>Guess a number between 1 to 100</p>
+    </div>
+
+    <h2>Guess the Number</h2>
+    <p class="hide_num" id="hiddenNumber">?</p>
+    <p class="message" id="message">Start Guessing...</p>
+
+    <div class="number_data">
+      <form onsubmit="return false">
+        <input
+          type="number"
+          placeholder="Enter your lucky number!"
+          class="input_number"
+          id="guessInput"
+        />
+        <button type="button" class="btn btn_check" onclick="checkGuess()">Check Now!</button>
+      </form>
+
+      <div class="content">
+        <p>Score: <span class="score" id="score">20</span></p>
+        <p>High Score: <span class="high_score" id="highScore">0</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let secretNumber = Math.floor(Math.random() * 100) + 1;
+    let score = 20;
+    let highScore = 0;
+
+    function checkGuess() {
+      const userGuess = Number(document.getElementById('guessInput').value);
+      const message = document.getElementById('message');
+      const scoreDisplay = document.getElementById('score');
+      const highScoreDisplay = document.getElementById('highScore');
+      const hiddenNumber = document.getElementById('hiddenNumber');
+
+      if (!userGuess || userGuess < 1 || userGuess > 100) {
+        message.textContent = "🚫 Please enter a number between 1 and 100.";
+        return;
+      }
+
+      if (userGuess === secretNumber) {
+        message.textContent = `🎉 Correct! The number was ${secretNumber}`;
+        hiddenNumber.textContent = secretNumber;
+        if (score > highScore) {
+          highScore = score;
+          highScoreDisplay.textContent = highScore;
+        }
+      } else {
+        if (score > 1) {
+          message.textContent = userGuess < secretNumber ? "📉 Too low!" : "📈 Too high!";
+          score--;
+          scoreDisplay.textContent = score;
+        } else {
+          message.textContent = "💥 Game Over!";
+          scoreDisplay.textContent = 0;
+        }
+      }
+    }
+
+    function resetGame() {
+      secretNumber = Math.floor(Math.random() * 100) + 1;
+      score = 20;
+      document.getElementById('score').textContent = score;
+      document.getElementById('message').textContent = "Start guessing...";
+      document.getElementById('guessInput').value = "";
+      document.getElementById('hiddenNumber').textContent = "?";
+    }
+  </script>
+</body>
+</html>
